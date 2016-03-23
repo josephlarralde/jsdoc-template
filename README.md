@@ -5,9 +5,14 @@ Default JSDoc template with minor modifications
 **Usage**
 
 ```
-// in config.json
+npm install collective-soundworks/jsdoc-template --save-dev
+``` 
+
+then, in `conf.json`
+
+```
 "opts": {
   "projectTitle": "The title of the project",
-  "template": "path/to/template"
+  "template": "node_modules/jsdoc-template"
 },
 ```
