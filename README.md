@@ -2,7 +2,7 @@
 
 Default JSDoc template with minor modifications
 
-**Usage**
+## Usage
 
 ```
 npm install collective-soundworks/jsdoc-template --save-dev
