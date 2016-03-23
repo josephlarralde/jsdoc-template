@@ -1,0 +1,19 @@
+{
+  "name": "jsdoc-template",
+  "version": "1.0.0",
+  "description": "Default jsdoc template with minor modifications",
+  "main": "publish.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/collective-soundworks/jsdoc-template.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/collective-soundworks/jsdoc-template/issues"
+  },
+  "homepage": "https://github.com/collective-soundworks/jsdoc-template#readme"
+}
