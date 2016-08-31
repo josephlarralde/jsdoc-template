@@ -10,6 +10,8 @@ var taffy = require('taffydb').taffy;
 var template = require('jsdoc/template');
 var util = require('util');
 
+var pkg = require(path.join(env.pwd, 'package.json'));
+
 var htmlsafe = helper.htmlsafe;
 var linkto = helper.linkto;
 var resolveAuthorLinks = helper.resolveAuthorLinks;
@@ -578,13 +580,18 @@ exports.publish = function(taffyData, opts, tutorials) {
 
     // index page displays information from package.json and lists files
     var files = find({kind: 'file'}),
-        packages = find({kind: 'package'});
+        packages = find({kind: 'package'}),
+        docs = packages.concat(
+            [{
+                kind: 'mainpage',
+                repo: (pkg.repository && pkg.repository.url),
+                version: pkg.version,
+                readme: opts.readme,
+                longname: (opts.mainpagetitle) ? opts.mainpagetitle : 'Main Page'
+            }]
+        ).concat(files)
 
-    generate('Home',
-        packages.concat(
-            [{kind: 'mainpage', readme: opts.readme, longname: (opts.mainpagetitle) ? opts.mainpagetitle : 'Main Page'}]
-        ).concat(files),
-    indexUrl);
+    generate('Home', docs, indexUrl);
 
     // set up the lists that we'll use to generate pages
     var classes = taffy(members.classes);
