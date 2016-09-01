@@ -7,17 +7,29 @@ body {
   width: 75%;
 }
 
-#metas #github {
-  float: left;
+/* home page link to github and last release */
+#metas {
+  line-height: 28px;
+  height: 28px;
 }
 
-#metas #version {
+#metas #github {
+  display: inline-block;
+  height: 28px;
+  line-height: normal;
+  vertical-align: baseline;
+}
+
+#metas #release {
   font-size: 100%;
   height: 28px;
-  line-height: 28px;
+  line-height: normal;
   color: steelblue;
-  padding: 0 50px;
+  padding: 0 20px;
+  display: inline-block;
+  vertical-align: baseline;
 }
+/* ! home page link to github and last release */
 
 nav {
   width: 25%;
