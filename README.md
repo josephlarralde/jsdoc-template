@@ -1,18 +1,20 @@
-# JSDoc Template
+# @ircam/jsdoc-template
 
-Default JSDoc template with minor modifications
+> Default JSDoc template with minor modifications
 
 ## Usage
 
-```
-npm install collective-soundworks/jsdoc-template --save-dev
-``` 
+install dependency
 
-then, in `conf.json`
+```
+npm install [--save-dev] @ircam/jsdoc-template 
+```
+
+and configure `conf.json`
 
 ```
 "opts": {
-  "projectTitle": "The title of the project",
-  "template": "node_modules/jsdoc-template"
+  "projectTitle": "Title of the project",
+  "template": "node_modules/@ircam/jsdoc-template"
 },
 ```

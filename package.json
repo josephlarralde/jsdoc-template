@@ -1,19 +1,22 @@
 {
-  "name": "jsdoc-template",
+  "name": "@ircam/jsdoc-template",
   "version": "1.0.1",
-  "description": "Default jsdoc template with minor modifications",
+  "description": "jsdoc template with minor modifications",
   "main": "publish.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "deploy": "np --yolo"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/collective-soundworks/jsdoc-template.git"
+    "url": "git+https://github.com/ircam-jstools/jsdoc-template.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/collective-soundworks/jsdoc-template/issues"
+    "url": "https://github.com/ircam-jstools/jsdoc-template/issues"
   },
-  "homepage": "https://github.com/collective-soundworks/jsdoc-template#readme"
+  "homepage": "https://github.com/ircam-jstools/jsdoc-template#readme",
+  "devDependencies": {
+    "np": "^2.18.2"
+  }
 }
