@@ -1,4 +1,4 @@
-# @ircam/jsdoc-template
+# forked from @ircam/jsdoc-template
 
 > Default JSDoc template with minor modifications
 
@@ -7,7 +7,7 @@
 install dependency
 
 ```
-npm install [--save-dev] @ircam/jsdoc-template 
+npm install [--save-dev] josephlarralde/jsdoc-template
 ```
 
 and configure `conf.json`
@@ -15,6 +15,6 @@ and configure `conf.json`
 ```
 "opts": {
   "projectTitle": "Title of the project",
-  "template": "node_modules/@ircam/jsdoc-template"
+  "template": "node_modules/jsdoc-template"
 },
 ```

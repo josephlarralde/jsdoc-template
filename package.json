@@ -1,6 +1,6 @@
 {
-  "name": "@ircam/jsdoc-template",
-  "version": "1.0.3",
+  "name": "jsdoc-template",
+  "version": "1.0.4",
   "description": "jsdoc template with minor modifications",
   "main": "publish.js",
   "publishConfig": {
@@ -11,14 +11,17 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ircam-jstools/jsdoc-template.git"
+    "url": "git+https://github.com/josephlarralde/jsdoc-template.git"
   },
-  "author": "",
+  "authors": [
+    "Benjamin Matuszewski",
+    "Joseph Larralde"
+  ],
   "license": "BSD-3",
   "bugs": {
-    "url": "https://github.com/ircam-jstools/jsdoc-template/issues"
+    "url": "https://github.com/josephlarralde/jsdoc-template/issues"
   },
-  "homepage": "https://github.com/ircam-jstools/jsdoc-template#readme",
+  "homepage": "https://github.com/josephlarralde/jsdoc-template#readme",
   "devDependencies": {
     "np": "^2.18.2"
   }
