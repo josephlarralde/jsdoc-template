@@ -299,6 +299,7 @@ function buildMemberNav(items, itemHeading, itemsSeen, linktoFn) {
         var itemsNav = '';
 
         items.forEach(function(item) {
+            // ITEM
             if ( !hasOwnProp.call(item, 'longname') ) {
                 itemsNav += '<li>' + linktoFn('', item.name) + '</li>';
             }
@@ -312,6 +313,20 @@ function buildMemberNav(items, itemHeading, itemsSeen, linktoFn) {
                 itemsNav += '<li>' + linktoFn(item.longname, displayName.replace(/\b(module|event):/g, '')) + '</li>';
 
                 itemsSeen[item.longname] = true;
+            }
+
+            // METHODS THAT ARE MEMBERS OF ITEM
+            if (opts.includeFunctionsInNav) {
+                var methods = find({kind:'function', memberof: item.longname});
+                if (methods.length) {
+                    itemsNav += "<li><ul class='methods'>";
+                    methods.forEach(function (method) {
+                        itemsNav += "<li data-type='method'>";
+                        itemsNav += linkto(method.longname, method.name);
+                        itemsNav += "</li>";
+                    });
+                    itemsNav += "</ul></li>";
+                }
             }
         });
 
@@ -345,19 +360,19 @@ function linktoExternal(longName, name) {
  * @param {array<object>} members.interfaces
  * @return {string} The HTML for the navigation sidebar.
  */
-function buildNav(members) {
+function buildNav(members, opts) {
     var nav = '<h2><a href="index.html">Home</a></h2>';
     var seen = {};
     var seenTutorials = {};
 
-    nav += buildMemberNav(members.modules, 'Modules', {}, linkto);
-    nav += buildMemberNav(members.externals, 'Externals', seen, linktoExternal);
-    nav += buildMemberNav(members.classes, 'Classes', seen, linkto);
-    nav += buildMemberNav(members.events, 'Events', seen, linkto);
-    nav += buildMemberNav(members.namespaces, 'Namespaces', seen, linkto);
-    nav += buildMemberNav(members.mixins, 'Mixins', seen, linkto);
-    nav += buildMemberNav(members.tutorials, 'Tutorials', seenTutorials, linktoTutorial);
-    nav += buildMemberNav(members.interfaces, 'Interfaces', seen, linkto);
+    nav += buildMemberNav(members.modules, 'Modules', {}, linkto, opts);
+    nav += buildMemberNav(members.externals, 'Externals', seen, linktoExternal, opts);
+    nav += buildMemberNav(members.classes, 'Classes', seen, linkto, opts);
+    nav += buildMemberNav(members.events, 'Events', seen, linkto, opts);
+    nav += buildMemberNav(members.namespaces, 'Namespaces', seen, linkto, opts);
+    nav += buildMemberNav(members.mixins, 'Mixins', seen, linkto, opts);
+    nav += buildMemberNav(members.tutorials, 'Tutorials', seenTutorials, linktoTutorial, opts);
+    nav += buildMemberNav(members.interfaces, 'Interfaces', seen, linkto, opts);
 
     if (members.globals.length) {
         var globalNav = '';
@@ -571,7 +586,7 @@ exports.publish = function(taffyData, opts, tutorials) {
     view.outputSourceFiles = outputSourceFiles;
 
     // once for all
-    view.nav = buildNav(members);
+    view.nav = buildNav(members, opts);
     attachModuleSymbols( find({ longname: {left: 'module:'} }), members.modules );
 
     // generate the pretty-printed source files first so other pages can link to them
