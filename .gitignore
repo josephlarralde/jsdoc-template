@@ -1,2 +1,5 @@
+**/.DS_Store
+**/Thumbs.sb
+
 node_modules
 package-lock.json

@@ -315,7 +315,10 @@ function buildMemberNav(items, itemHeading, itemsSeen, linktoFn, opts) {
                 itemsSeen[item.longname] = true;
             }
 
-            // METHODS THAT ARE MEMBERS OF ITEM
+            // trick found here :
+            // https://stackoverflow.com/questions/38250446/jsdoc-how-to-add-functions-to-nav-bar
+
+            // APPEND METHODS THAT ARE MEMBERS OF THE ITEM, JUST BELOW IT
             if (opts.includeFunctionsInNav) {
                 var methods = find({kind:'function', memberof: item.longname});
                 if (methods.length) {
